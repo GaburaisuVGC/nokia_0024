@@ -6,9 +6,8 @@ WORKDIR /api
 # Copier package.json et package-lock.json
 COPY ../src/package*.json ./
 
-# Installer les dépendances
-RUN apt-get install -y aws-cli && \
-    npm install
+# Installer les dépendances et aws-cli
+RUN npm install
 
 # Copier le reste de l'application
 COPY ../src/ .
@@ -18,3 +17,4 @@ EXPOSE 3000
 
 # Commande pour démarrer l'application
 CMD [ "npm", "start" ]
+
