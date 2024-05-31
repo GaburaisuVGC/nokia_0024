@@ -1,9 +1,9 @@
-name: Build and Deploy App to ECS
+# name: Build and Deploy App to ECS
 
-on:
-  push:
-  branches:
-  - master
+# on:
+#   push:
+#   branches:
+#   - master
 
-env:
-  ECR_IMAGE:
+# env:
+#   ECR_IMAGE:
