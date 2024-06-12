@@ -3,7 +3,7 @@
 *Mise en place Devops, résumé de mes actions:
 sudo dockerd to launch Docker if you didn't setup automatic launch in WSL
 docker build -f docker/Dockerfile.dev -t api .
-docker run -dp 3000:3000 api
+docker run -dp 8080:8080 api
 
 https://www.youtube.com/watch?v=FTNKDgN4CGI
 need to install aws cli : sudo apt install awscli
