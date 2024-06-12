@@ -6,6 +6,7 @@ sudo dockerd to launch Docker if you didn't setup automatic launch in WSL
 # docker run -dp 3000:3000 api
 
 https://www.youtube.com/watch?v=FTNKDgN4CGI
+
 need to install aws cli : sudo apt install awscli
 Create AWS-CLI user
 # Then "aws configure" in WSL with the API key and the secret
