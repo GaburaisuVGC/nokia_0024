@@ -11,6 +11,8 @@ services:
       - api-network
     volumes:
       - ./:/home/dev:cached
+    ports:
+      - '8080:8080'
 
   db:
     image: postgres:latest
