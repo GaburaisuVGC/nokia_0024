@@ -11,7 +11,6 @@ const morgan_1 = __importDefault(require("morgan"));
 const debug_1 = __importDefault(require("debug"));
 const http_1 = __importDefault(require("http"));
 const index_1 = __importDefault(require("./routes/index"));
-const users_1 = __importDefault(require("./routes/users"));
 const debug = (0, debug_1.default)('src:server');
 const app = (0, express_1.default)();
 app.use((0, morgan_1.default)('dev'));
@@ -20,7 +19,6 @@ app.use(express_1.default.urlencoded({ extended: false }));
 app.use((0, cookie_parser_1.default)());
 app.use(express_1.default.static(path_1.default.join(__dirname, 'public')));
 app.use('/', index_1.default);
-app.use('/users', users_1.default);
 /**
  * Get port from environment and store in Express.
  */
