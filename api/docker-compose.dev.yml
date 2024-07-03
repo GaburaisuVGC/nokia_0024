@@ -12,21 +12,21 @@ services:
     volumes:
       - ./:/home/dev:cached
     
-    db:
-      image: postgres:latest
-      expose:
-        - "5433"
-      ports:
-        - "5433:5433"
-      environment:
-        POSTGRES_USER: root
-        POSTGRES_PASSWORD: password
-      volumes:
-        - ./api/db/db-data:/var/lib/postgresql/data
-        - ./api/db/postgres.cnf:/etc/postgresql/postgresql.conf
-      command: -p 5433
-      networks:
-        - api-network
+  db:
+    image: postgres:latest
+    expose:
+      - "5433"
+    ports:
+      - "5433:5433"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./api/db/db-data:/var/lib/postgresql/data
+      - ./api/db/postgres.cnf:/etc/postgresql/postgresql.conf
+    command: -p 5433
+    networks:
+      - api-network
 
   proxy:
     image: nginx

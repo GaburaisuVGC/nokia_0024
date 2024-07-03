@@ -2,13 +2,14 @@
   "name": "src",
   "version": "0.0.0",
   "private": true,
+  "main": "app.ts",
   "scripts": {
-    "server": "nodemon src/server.ts",
+    "server": "node src/app.ts",
     "clean": "rimraf build",
     "build": "npm run clean && tsc",
-    "start-api": "node ./build/server.js",
-    "start": "node dist/server.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/server.js\""
+    "start-api": "node ./build/app.js",
+    "start": "node dist/app.js",
+    "dev": "concurrently \"npx tsc --watch\" \"node -q dist/app.js\""
   },
   "dependencies": {
     "@prisma/client": "^3.0.0",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
-    "rimraf": "^5.0.7"
+    "rimraf": "^5.0.7",
+    "typescript": "^4.5.4"
   }
 }

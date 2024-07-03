@@ -6,7 +6,7 @@ sudo dockerd to launch Docker if you didn't setup automatic launch in WSL
 
 # docker build -f docker/Dockerfile.dev -t api .
 
-# docker run -dp 8080:8080 api
+# docker run -dp 5050:5050 api
 
 https://www.youtube.com/watch?v=FTNKDgN4CGI
 

@@ -23,7 +23,7 @@ app.use('/', indexRouter);
 /**
  * Get port from environment and store in Express.
  */
-const port = normalizePort(process.env.PORT || '8080');
+const port = normalizePort(process.env.PORT || '5050');
 app.set('port', port);
 
 /**
