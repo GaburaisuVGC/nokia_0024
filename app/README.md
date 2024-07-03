@@ -10,6 +10,8 @@ puis
 
 ```
 yarn
+cd app
+npm i
 ```
 
 Il faut un compte expo
