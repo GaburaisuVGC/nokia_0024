@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "server": "nodemon src/server.ts",
     "clean": "rimraf build",
     "build": "npm run clean && tsc",
-    "start": "node dist/app.js",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate deploy"
+    "start-api": "node ./build/server.js",
+    "start": "node dist/server.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/server.js\""
   },
   "dependencies": {
     "@prisma/client": "^3.0.0",
