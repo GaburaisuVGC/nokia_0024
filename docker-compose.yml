@@ -24,11 +24,11 @@ services:
     ports:
       - "5433:5433"
     environment:
-    POSTGRES_USER: root
-    POSTGRES_PASSWORD: password
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
     volumes:
-      - ./api/db/db-data:/var/lib/mysql
-      - ./api/db/postgres.cnf:/etc/postgres/postgres.cnf
+      - ./api/db/db-data:/var/lib/postgresql/data
+      - ./api/db/postgres.cnf:/etc/postgresql/postgresql.conf
     command: -p 5433
     networks:
       - api-network
