@@ -13,4 +13,5 @@ WORKDIR /api
 COPY --from=api-builder /api/build ./build
 COPY package* ./
 RUN npm install --omit=dev
+EXPOSE 5050
 CMD npm run start-api
