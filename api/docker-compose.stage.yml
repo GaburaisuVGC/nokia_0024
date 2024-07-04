@@ -4,18 +4,23 @@ services:
   api:
     build:
       context: ./
-      dockerfile: ./api/docker/Dockerfile
-    command: /bin/bash -c "./wait-for-psql.sh db 5432 -- npm run prisma:migrate && npm run prisma:generate && npm run dev"
-    working_dir: /home/dev
+      dockerfile: ./docker/Dockerfile.stage
+    container_name: api
+    ports:
+      - "5050:5050"
+    environment:
+      - NODE_ENV=prod
+      - PORT=5050
     networks:
       - api-network
-    volumes:
-      - ./:/home/dev:cached
-      - ./wait-for-psql.sh:/usr/local/bin/wait-for-psql.sh
-    ports:
-      - '8080:8080'
-    depends_on:
-      - db
+    restart: always
+    labels:
+      api_logging: "true"
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "500m"
 
   db:
     image: postgres:latest
@@ -27,8 +32,8 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: password
     volumes:
-      - ./api/db/db-data:/var/lib/mysql
-      - ./api/db/postgres.cnf:/etc/postgres/postgres.cnf
+      - ./api/db/db-data:/var/lib/postgresql/data
+      - ./api/db/postgres.cnf:/etc/postgresql/postgresql.conf
     command: -p 5433
     networks:
       - api-network
@@ -40,7 +45,7 @@ services:
       - "443:443"
     restart: always
     volumes:
-      - ./nginx/api-https-setup.nginx.conf:/etc/nginx/conf.d/api.nginx.conf
+      - ./nginx/api-https.nginx.conf:/etc/nginx/conf.d/api.nginx.conf
       - ./nginx/certbot/www:/var/www/certbot/:ro
       - ./nginx/certbot/conf/:/etc/nginx/ssl/:ro
     networks:
