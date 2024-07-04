@@ -21,15 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
-app.get('/contacts', async (req: Request, res: Response, next: NextFunction) => {
-    try {
-        const contacts = await prisma.contact.findMany();
-        res.json(contacts);
-    } catch (error) {
-        next(error);
-    }
-});
-
 /**
  * Get port from environment and store in Express.
  */
