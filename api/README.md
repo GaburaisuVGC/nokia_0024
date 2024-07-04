@@ -17,7 +17,25 @@ Create AWS-CLI user
 
 # docker build -t docker/Dockerfile.dev -t api .
 
-# docker tag api:latest 891377270838.dkr.ecr.us-east-1.amazonaws.com/nokia0024_back:latest
+# Stage
+docker build -t nokia0024_back .
+docker tag api:latest 891377270838.dkr.ecr.us-east-1.amazonaws.com/nokia0024_back:latest
+docker push 891377270838.dkr.ecr.us-east-1.amazonaws.com/nokia0024_back:latest
+
+# Certbot
+docker build -t nokia0024-certbot .
+docker tag nokia0024-certbot:latest 891377270838.dkr.ecr.us-east-1.amazonaws.com/nokia0024-certbot:latest
+docker push 891377270838.dkr.ecr.us-east-1.amazonaws.com/nokia0024-certbot:latest
+
+# Proxy
+docker build -t nokia0024-proxy .
+docker tag nokia0024-proxy:latest 891377270838.dkr.ecr.us-east-1.amazonaws.com/nokia0024-proxy:latest
+docker push 891377270838.dkr.ecr.us-east-1.amazonaws.com/nokia0024-proxy:latest
+
+# Db
+docker build -t nokia0024-db .
+docker tag nokia0024-db:latest 891377270838.dkr.ecr.us-east-1.amazonaws.com/nokia0024-db:latest
+docker push 891377270838.dkr.ecr.us-east-1.amazonaws.com/nokia0024-db:latest
 
 -> Login to aws-cli (your credentials are already saved in console if you've configured them):
 
