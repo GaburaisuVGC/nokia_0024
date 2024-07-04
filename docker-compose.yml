@@ -4,7 +4,7 @@ services:
   api:
     build:
       context: ./
-      dockerfile: ./api/docker/Dockerfile.stage
+      dockerfile: ./api/docker/Dockerfile
     command: /bin/bash -c "./wait-for-psql.sh db 5432 -- npm run prisma:migrate && npm run prisma:generate && npm run dev"
     working_dir: /home/dev
     networks:
@@ -24,8 +24,8 @@ services:
     ports:
       - "5433:5433"
     environment:
-    POSTGRES_USER: root
-    POSTGRES_PASSWORD: password
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
     volumes:
       - ./api/db/db-data:/var/lib/mysql
       - ./api/db/postgres.cnf:/etc/postgres/postgres.cnf
