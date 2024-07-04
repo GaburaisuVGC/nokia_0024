@@ -1,0 +1,16 @@
+# Étape de construction
+FROM node:18-bullseye-slim AS api-builder
+WORKDIR /api
+COPY . .
+
+RUN npm install
+RUN npm run clean
+RUN npm run build
+
+# Étape de production
+FROM node:18-bullseye-slim AS api
+WORKDIR /api
+COPY --from=api-builder /api/build ./build
+COPY package* ./
+RUN npm install --omit=dev
+CMD npm run start-api
