@@ -24,11 +24,8 @@
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
-<<<<<<< HEAD
-    "prisma": "^5.16.1"
-=======
+    "prisma": "^5.16.1",
     "rimraf": "^5.0.7",
     "typescript": "^5.5.3"
->>>>>>> e65ababeecc43533d3bfe4c6043c7888b022a312
   }
 }
