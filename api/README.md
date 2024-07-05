@@ -47,5 +47,5 @@ docker push 891377270838.dkr.ecr.us-east-1.amazonaws.com/nokia0024-db:latest
 docker compose -f docker-compose.yml up -d
 
 # Création des certificats
-docker compose -f docker-compose.yml run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ -d nokia0024-api.com
+docker compose -f docker-compose.stage.setup.yml run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ -d nokia0024-api.com
 
