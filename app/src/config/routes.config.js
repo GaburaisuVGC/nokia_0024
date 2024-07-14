@@ -8,10 +8,11 @@ const routesConfig = [
   { name: 'HomePage', component: HomePage },
 
   //Game
-  // { name: 'Game', component: Game },
+  // { name: 'SnakeIII', component: SnakeIII },
 
   //Setting
   { name: 'Signin', component: Signin },
+  // { name: 'Signup', component: Signup },
 ];
 
 export default routesConfig;
