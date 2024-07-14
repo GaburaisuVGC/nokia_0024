@@ -2,12 +2,12 @@ import React from "react";
 import { useNavigation } from '@react-navigation/native';
 import { Text } from "react-native";
 
-function HomeScreen(props) {
+function Signin(props) {
     const navigation = useNavigation();
     return (
-        <Text>ok</Text>
+        <Text>test</Text>
+
     );
 }
 
-
-export default HomeScreen;
+export default Signin;
